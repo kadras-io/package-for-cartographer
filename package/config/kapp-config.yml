@@ -1,0 +1,22 @@
+#@ load("@ytt:data", "data")
+
+---
+apiVersion: kapp.k14s.io/v1alpha1
+kind: Config
+
+minimumRequiredVersion: 0.50.0
+
+#! Specify which fields should be removed before diff-ing against last applied resource.
+#! See more: https://carvel.dev/kapp/docs/latest/config/#diffagainstlastappliedfieldexclusionrules
+diffAgainstLastAppliedFieldExclusionRules:
+
+#! cert-manager will add custom annotations to the Cartographer Secrets.
+#! We want to keep those annotations between upgrades, so we exclude them
+#! from the diff to prevent them being overwritten.
+- path: [metadata, annotations]
+  type: copy
+  sources: [existing]
+  resourceMatchers:
+  - apiVersionKindMatcher:
+      apiVersion: v1
+      kind: Secret

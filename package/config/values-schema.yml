@@ -1,0 +1,28 @@
+#@data/values-schema
+---
+
+#@schema/desc "PEM-encoded certificate data to trust TLS connections with a custom CA."
+ca_cert_data: ""
+
+#@schema/desc "Settings for the Cartographer component."
+cartographer:
+  #@schema/desc "Concurrency configuration for the Cartographer controller."
+  concurrency:
+    #@schema/desc "Maximum concurrent Workloads processed by the Cartographer controller."
+    max_workloads: 2
+    #@schema/desc "Maximum concurrent Runnables processed by the Cartographer controller."
+    max_runnables: 2
+    #@schema/desc "Maximum concurrent Deliveries processed by the Cartographer controller."
+    max_deliveries: 2
+  #@schema/desc "CPU and memory configuration for the Cartographer controller."
+  #@schema/type any=True
+  resources: {}
+
+#@schema/desc "Settings for the Cartographer Conventions component."
+conventions:
+  #@schema/desc "IAM credentials to authenticate the Cartographer Conventions controller when deployed on AWS."
+  #@schema/nullable
+  aws_iam_role_arn: ""
+  #@schema/desc "CPU and memory configuration for the Cartographer Conventions controller."
+  #@schema/type any=True
+  resources: {}

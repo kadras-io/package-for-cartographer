@@ -1,0 +1,20 @@
+apiVersion: vendir.k14s.io/v1alpha1
+directories:
+- contents:
+  - githubRelease:
+      disableAutoChecksumValidation: true
+      slug: vmware-tanzu/cartographer
+      tag: v0.7.3
+    includePaths:
+    - cartographer.yaml
+    path: cartographer
+  - githubRelease:
+      disableAutoChecksumValidation: true
+      slug: vmware-tanzu/cartographer-conventions
+      tag: v0.5.1
+    includePaths:
+    - cartographer-conventions-v*.yaml
+    path: cartographer-conventions
+  path: config/upstream
+kind: Config
+minimumRequiredVersion: 0.32.0

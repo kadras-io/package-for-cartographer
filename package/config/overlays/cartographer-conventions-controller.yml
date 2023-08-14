@@ -1,0 +1,13 @@
+#@ load("@ytt:data", "data")
+#@ load("@ytt:overlay", "overlay")
+
+#@overlay/match by=overlay.subset({"kind":"Deployment", "metadata":{"name":"cartographer-conventions-controller-manager"}})
+---
+spec:
+  template:
+    spec:
+      containers:
+      #@overlay/match by="name"
+      - name: manager
+        #@overlay/match missing_ok=True
+        resources: #@ data.values.conventions.resources
