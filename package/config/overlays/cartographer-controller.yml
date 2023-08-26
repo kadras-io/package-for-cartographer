@@ -12,8 +12,9 @@ spec:
         #@overlay/match missing_ok=True
         args:
           #@overlay/append
-          - #@ "-max-concurrent-deliveries=" + str(data.values.cartographer.concurrency.max_deliveries)
-          - #@ "-max-concurrent-workloads=" + str(data.values.cartographer.concurrency.max_workloads)
-          - #@ "-max-concurrent-runnables=" + str(data.values.cartographer.concurrency.max_runnables)
+          - #@ "-log-level={}".format(data.values.logging.level)
+          - #@ "-max-concurrent-deliveries={}".format(data.values.cartographer.concurrency.max_deliveries)
+          - #@ "-max-concurrent-workloads={}".format(data.values.cartographer.concurrency.max_workloads)
+          - #@ "-max-concurrent-runnables={}".format(data.values.cartographer.concurrency.max_runnables)
         #@overlay/match missing_ok=True
         resources: #@ data.values.cartographer.resources

@@ -15,8 +15,17 @@ cartographer:
     #@schema/desc "Maximum concurrent Deliveries processed by the Cartographer controller."
     max_deliveries: 2
   #@schema/desc "CPU and memory configuration for the Cartographer controller."
-  #@schema/type any=True
-  resources: {}
+  resources:
+    requests:
+      #@schema/desc "CPU requests configuration for the Cartographer controller."
+      cpu: "500m"
+      #@schema/desc "Memory requests configuration for the Cartographer controller."
+      memory: "512Mi"
+    limits:
+      #@schema/desc "CPU limits configuration for the Cartographer controller."
+      cpu: "1"
+      #@schema/desc "Memory limits configuration for the Cartographer controller."
+      memory: "1Gi"
 
 #@schema/desc "Settings for the Cartographer Conventions component."
 conventions:
@@ -24,5 +33,20 @@ conventions:
   #@schema/nullable
   aws_iam_role_arn: ""
   #@schema/desc "CPU and memory configuration for the Cartographer Conventions controller."
-  #@schema/type any=True
-  resources: {}
+  resources:
+    requests:
+      #@schema/desc "CPU requests configuration for the Cartographer Conventions controller."
+      cpu: "100m"
+      #@schema/desc "Memory requests configuration for the Cartographer Conventions controller."
+      memory: "20Mi"
+    limits:
+      #@schema/desc "CPU limits configuration for the Cartographer Conventions controller."
+      cpu: "100m"
+      #@schema/desc "Memory limits configuration for the Cartographer Conventions controller."
+      memory: "256Mi"
+
+#@schema/desc "Settings for logging."
+logging:
+  #@schema/desc "Log verbosity level. Options: `debug`, `info`, `error`."
+  #@schema/validation one_of=["debug", "info", "error"]
+  level: info
