@@ -103,6 +103,7 @@ The Cartographer package has the following configurable properties.
 | Config | Default | Description |
 |-------|-------------------|-------------|
 | `ca_cert_data` | `""` | PEM-encoded certificate data to trust TLS connections with a custom CA. |
+| `logging.level` | `info` | Log verbosity level. Options: `debug`, `info`, `error`. |
 
 Settings for the Cartographer component.
 
@@ -111,14 +112,20 @@ Settings for the Cartographer component.
 | `cartographer.concurrency.max_workloads` | `2` | Maximum concurrent Workloads processed by the Cartographer controller. |
 | `cartographer.concurrency.max_runnables` | `2` | Maximum concurrent Runnables processed by the Cartographer controller. |
 | `cartographer.concurrency.max_deliveries` | `2` | Maximum concurrent Deliveries processed by the Cartographer controller. |
-| `cartographer.resources` | `""` | CPU and memory configuration for the Cartographer controller. |
+| `cartographer.resources.requests.cpu` | `500m` | CPU requests configuration for the Cartographer controller. |
+| `cartographer.resources.requests.memory` | `512Mi` | Memory requests configuration for the Cartographer controller. |
+| `cartographer.resources.limits.cpu` | `1` | CPU limits configuration for the Cartographer controller. |
+| `cartographer.resources.limits.memory` | `1Gi` | Memory limits configuration for the Cartographer controller. |
 
 Settings for the Cartographer Conventions component.
 
 | Config | Default | Description |
 |-------|-------------------|-------------|
 | `conventions.aws_iam_role_arn` | `""` | IAM credentials to authenticate the Cartographer Conventions controller when deployed on AWS. |
-| `conventions.resources` | `""` | CPU and memory configuration for the Cartographer Conventions controller. |
+| `conventions.resources.requests.cpu` | `100m` | CPU requests configuration for the Cartographer Conventions controller. |
+| `conventions.resources.requests.memory` | `20Mi` | Memory requests configuration for the Cartographer Conventions controller. |
+| `conventions.resources.limits.cpu` | `100m` | CPU limits configuration for the Cartographer Conventions controller. |
+| `conventions.resources.limits.memory` | `256Mi` | Memory limits configuration for the Cartographer Conventions controller. |
 
 </details>
 
