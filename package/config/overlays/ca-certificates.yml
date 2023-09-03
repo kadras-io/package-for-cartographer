@@ -1,6 +1,8 @@
 #@ load("@ytt:data", "data")
 #@ load("@ytt:overlay", "overlay")
 
+#@ if/end data.values.ca_cert_data != "":
+
 #@overlay/match by=overlay.subset({"kind":"Secret", "metadata":{"name":"cartographer-conventions-ca-certificates"}})
 ---
 data:

@@ -102,6 +102,7 @@ The Cartographer package has the following configurable properties.
 
 | Config | Default | Description |
 |-------|-------------------|-------------|
+| `optional_components.cartographer_conventions` | `true` | Whether to deploy the Cartographer Conventions component. |
 | `ca_cert_data` | `""` | PEM-encoded certificate data to trust TLS connections with a custom CA. |
 | `logging.level` | `info` | Log verbosity level. Options: `debug`, `info`, `error`. |
 
@@ -121,7 +122,6 @@ Settings for the Cartographer Conventions component.
 
 | Config | Default | Description |
 |-------|-------------------|-------------|
-| `conventions.aws_iam_role_arn` | `""` | IAM credentials to authenticate the Cartographer Conventions controller when deployed on AWS. |
 | `conventions.resources.requests.cpu` | `100m` | CPU requests configuration for the Cartographer Conventions controller. |
 | `conventions.resources.requests.memory` | `20Mi` | Memory requests configuration for the Cartographer Conventions controller. |
 | `conventions.resources.limits.cpu` | `100m` | CPU limits configuration for the Cartographer Conventions controller. |
