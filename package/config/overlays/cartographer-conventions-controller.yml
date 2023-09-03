@@ -1,7 +1,7 @@
 #@ load("@ytt:data", "data")
 #@ load("@ytt:overlay", "overlay")
 
-#@overlay/match by=overlay.subset({"kind":"Deployment", "metadata":{"name":"cartographer-conventions-controller-manager"}})
+#@overlay/match by=overlay.subset({"kind":"Deployment", "metadata":{"name":"cartographer-conventions-controller-manager"}}), expects="0+"
 ---
 spec:
   template:

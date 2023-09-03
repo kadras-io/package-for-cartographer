@@ -1,0 +1,8 @@
+#@ load("@ytt:data", "data")
+#@ load("@ytt:overlay", "overlay")
+
+#@ if/end not data.values.optional_components.cartographer_conventions:
+
+#@overlay/remove
+#@overlay/match by=overlay.subset({"metadata":{"labels":{"app.kubernetes.io/component": "conventions"}}}), expects="1+"
+---

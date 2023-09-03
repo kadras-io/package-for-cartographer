@@ -1,6 +1,11 @@
 #@data/values-schema
 ---
 
+#@schema/desc "Settings for which Cartographer optional components to deploy."
+optional_components:
+  #@schema/desc "Whether to deploy the Cartographer Conventions component."
+  cartographer_conventions: true
+
 #@schema/desc "PEM-encoded certificate data to trust TLS connections with a custom CA."
 ca_cert_data: ""
 
@@ -29,9 +34,6 @@ cartographer:
 
 #@schema/desc "Settings for the Cartographer Conventions component."
 conventions:
-  #@schema/desc "IAM credentials to authenticate the Cartographer Conventions controller when deployed on AWS."
-  #@schema/nullable
-  aws_iam_role_arn: ""
   #@schema/desc "CPU and memory configuration for the Cartographer Conventions controller."
   resources:
     requests:

@@ -1,7 +1,10 @@
+#@ load("@ytt:base64", "base64")
 #@ load("@ytt:data", "data")
 #@ load("@ytt:overlay", "overlay")
+
+#@ if/end data.values.ca_cert_data != "":
 
 #@overlay/match by=overlay.subset({"kind":"Secret", "metadata":{"name":"cartographer-conventions-ca-certificates"}})
 ---
 data:
-  ca-certificates.crt: #@ data.values.ca_cert_data
+  ca-certificates.crt: #@ base64.encode(data.values.ca_cert_data)
