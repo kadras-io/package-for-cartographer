@@ -4,7 +4,7 @@ directories:
   - githubRelease:
       disableAutoChecksumValidation: true
       slug: vmware-tanzu/cartographer
-      tag: v0.8.1
+      tag: v0.8.2
     includePaths:
     - cartographer.yaml
     path: cartographer
